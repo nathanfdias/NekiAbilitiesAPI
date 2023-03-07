@@ -24,7 +24,8 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
   private static final String UNPROCESSABLE_ENTITY_MESSAGE = "Unprocessable Entity";
 
-  @ExceptionHandler({ DataIntegrityViolationException.class, MethodArgumentTypeMismatchException.class, AbilityException.class})
+  @ExceptionHandler({ DataIntegrityViolationException.class, MethodArgumentTypeMismatchException.class,
+      AbilityException.class, RefreshTokenException.class, AccountException.class, UserException.class })
   public ResponseEntity<ApiError> handleExceptions(RuntimeException ex) {
     log.error("Error: ", ex);
     return new ResponseEntity<>(
@@ -50,4 +51,3 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
 }
-
