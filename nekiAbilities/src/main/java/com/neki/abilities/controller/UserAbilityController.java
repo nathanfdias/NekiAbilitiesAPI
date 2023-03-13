@@ -51,7 +51,6 @@ public class UserAbilityController {
 
     @PostMapping()
     @SecurityRequirement(name = "token")
-    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Create UserAbility", description = "Create UserAbility", responses = {
             @ApiResponse(responseCode = "200", description = "Successfully UserAbility created!", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserAbilityRequestDTO.class))),
             @ApiResponse(responseCode = "400", ref = "BadRequest"),
@@ -75,9 +74,8 @@ public class UserAbilityController {
 
     @PutMapping("{id}")
     @SecurityRequirement(name = "token")
-    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Update UserAbility", description = "Update UserAbility", responses = {
-            @ApiResponse(responseCode = "200", description = "Successfully UserAbility updated!", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserAbilityDTO.class))),
+            @ApiResponse(responseCode = "200", description = "Successfully UserAbility updated!", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "400", ref = "BadRequest"),
             @ApiResponse(responseCode = "401", ref = "badcredentials"),
             @ApiResponse(responseCode = "422", ref = "unprocessableEntity"),

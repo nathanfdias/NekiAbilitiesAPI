@@ -72,6 +72,7 @@ public class SecurityConfig {
         http.cors().and().csrf().disable().authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET, "/abilities").permitAll()
                 .requestMatchers(HttpMethod.GET, "/abilities/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/users/{id}").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/signin").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/signup").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/refreshtoken").permitAll()
