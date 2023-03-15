@@ -70,7 +70,7 @@ public class AbilityController {
 
     @PostMapping()
     @SecurityRequirement(name = "token")
-    @PreAuthorize("hasRole('ADMIN')")
+    // @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Create Ability", description = "Create Ability", responses = {
             @ApiResponse(responseCode = "200", description = "Successfully Ability created!", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AbilityResponseDTO.class))),
             @ApiResponse(responseCode = "400", ref = "BadRequest"),

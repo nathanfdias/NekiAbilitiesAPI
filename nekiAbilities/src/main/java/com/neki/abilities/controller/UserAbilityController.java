@@ -96,7 +96,7 @@ public class UserAbilityController {
 
     @DeleteMapping("{id}")
     @SecurityRequirement(name = "token")
-    @PreAuthorize("hasRole('ADMIN')")
+    // @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Delete UserAbility", description = "Delete UserAbility", responses = {
             @ApiResponse(responseCode = "200", description = "Successfully UserAbility deleted!"),
             @ApiResponse(responseCode = "400", ref = "BadRequest"),
