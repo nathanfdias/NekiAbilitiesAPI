@@ -40,3 +40,5 @@ public class AuthenticationEntryPointJwt implements AuthenticationEntryPoint {
         mapper.writeValue(response.getOutputStream(), body);
     }
 }
+
+// Este código define uma classe chamada AuthenticationEntryPointJwt que implementa a interface AuthenticationEntryPoint. Ela é responsável por lidar com exceções de autenticação em caso de erros de autorização e retornar uma resposta adequada em JSON, com código de status 401 (não autorizado) e informações adicionais sobre o erro. Essa classe é usada posteriormente na configuração de segurança para especificar o ponto de entrada da autenticação em caso de falhas.

@@ -93,48 +93,11 @@ public class OpenApiConfig {
 								.url("https://www.apache.org/licenses/LICENSE-2.0.html")));
 	}
 
-	// @Bean
-	// public GroupedOpenApi authenticationApi() {
-	// String[] paths = { "/api/auth/**" };
-	// return GroupedOpenApi.builder()
-	// .group("Authentication")
-	// .pathsToMatch(paths)
-	// .build();
-	// }
-
-	// @Bean
-	// public GroupedOpenApi RecoveryApi() {
-	// String[] paths = { "/api/password-recovery/**" };
-	// return GroupedOpenApi.builder()
-	// .group("Password Recovery")
-	// .pathsToMatch(paths)
-	// .build();
-	// }
-
-	// @Bean
-	// public GroupedOpenApi CategoryApi() {
-	// String[] paths = { "/api/category/**" };
-	// return GroupedOpenApi.builder()
-	// .group("Categories")
-	// .pathsToMatch(paths)
-	// .build();
-	// }
-
-	// @Bean
-	// public GroupedOpenApi UserApi() {
-	// String[] paths = { "/api/users/**" };
-	// return GroupedOpenApi.builder()
-	// .group("Users")
-	// .pathsToMatch(paths)
-	// .build();
-	// }
-
-	// @Bean
-	// public GroupedOpenApi ProductApi() {
-	// String[] paths = { "/api/products/**" };
-	// return GroupedOpenApi.builder()
-	// .group("Products")
-	// .pathsToMatch(paths)
-	// .build();
-	// }
 }
+
+// Esse código é uma classe de configuração para gerar a especificação OpenAPI (anteriormente conhecida como Swagger) de uma API Spring Boot. Ele usa a anotação "@OpenAPIDefinition" para especificar que é uma definição OpenAPI. Também usa a anotação "@SecurityScheme" para definir um esquema de segurança chamado "token" do tipo HTTP, com formato Bearer JWT.
+
+// A classe contém um método chamado "baseOpenAPI" que cria um objeto OpenAPI. Dentro desse método, são adicionadas várias respostas de exemplo à configuração de respostas padrão usando o objeto ApiResponse. Cada resposta é associada a um código de status HTTP específico e uma descrição correspondente. Além disso, é adicionado um objeto Components que contém as respostas adicionadas, que podem ser referenciadas posteriormente em outros lugares da especificação.
+
+// Por fim, é definido um objeto OpenAPI contendo informações básicas sobre a API, como o título, a versão e uma descrição. Ele também inclui informações de contato e uma licença associada à API.
+

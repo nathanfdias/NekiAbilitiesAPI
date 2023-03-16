@@ -28,10 +28,23 @@ public class RefreshTokenService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * It returns an Optional of a RefreshToken object, which is found by the token parameter
+     * 
+     * @param token The token that was sent to the client
+     * @return An Optional object.
+     */
     public Optional<RefreshToken> findByToken(String token) {
         return refreshTokenRepository.findByToken(token);
     }
 
+    /**
+     * It creates a new refresh token for the user if the user doesn't have a refresh token or if the
+     * user's refresh token has expired
+     * 
+     * @param userId The user's id.
+     * @return RefreshToken
+     */
     public RefreshToken createRefreshToken(Long userId) {
 
         User user = userRepository.findById(userId).get();
@@ -61,11 +74,20 @@ public class RefreshTokenService {
         return token;
     }
 
+    /**
+     * It deletes all refresh tokens associated with a user
+     * 
+     * @param userId The user id of the user whose refresh token you want to delete.
+     * @return The number of rows affected by the delete operation.
+     */
     @Transactional
     public int deleteByUserId(Long userId) {
         return refreshTokenRepository.deleteByUser(userRepository.findById(userId).get());
     }
 
+/**
+ * If the current time is after the expiry date of the token, delete the token from the database.
+ */
     @Transactional
     public void deleteAllRefreshTokensExpired() {
         List<RefreshToken> tokens = refreshTokenRepository.findAll();

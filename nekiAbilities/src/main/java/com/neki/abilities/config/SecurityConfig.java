@@ -41,11 +41,14 @@ public class SecurityConfig {
     @Autowired
     private AuthenticationEntryPointJwt unauthorizedHandler;
 
+
+    // Esse código define um bean chamado authenticationJwtTokenFilter, que retorna uma nova instância de        AuthenticationTokenFilter. Esse filtro é utilizado para interceptar todas as requisições e verificar se o token de autenticação está presente e é válido. Se o token for válido, o filtro adiciona o objeto Authentication no contexto de segurança do Spring.
     @Bean
     public AuthenticationTokenFilter authenticationJwtTokenFilter() {
         return new AuthenticationTokenFilter();
     }
 
+    // Este código cria um bean do tipo DaoAuthenticationProvider, que fornece a implementação padrão do Spring Security para autenticação de usuários por meio de um UserDetailsService e um codificador de senhas. Em seguida, o método setUserDetailsService() define o serviço de detalhes do usuário e o método setPasswordEncoder() define o codificador de senha. O bean é retornado no final do método.
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -56,11 +59,15 @@ public class SecurityConfig {
         return authProvider;
     }
 
+    // Este método é responsável por criar e retornar uma instância do AuthenticationManager, que é usado para autenticar usuários. Ele recebe uma instância de AuthenticationConfiguration como parâmetro e chama o método getAuthenticationManager() para obter o AuthenticationManager configurado.
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 
+
+
+ //This function returns a new instance of the BCryptPasswordEncoder class, which is a class that implements the PasswordEncoder interface.
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -105,3 +112,5 @@ public class SecurityConfig {
         }
     }
 }
+
+// Este código define a configuração de segurança da aplicação. Ele configura um filtro de autenticação para processar os tokens JWT, define um provedor de autenticação que utiliza uma implementação personalizada de UserDetailsService e um encoder de senha BCrypt, e configura as permissões de acesso a diferentes URLs da API. Além disso, o código define uma classe interna que trata as exceções de acesso negado.

@@ -67,3 +67,5 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
         return null;
     }
 }
+
+// Esse código é responsável pela validação do token JWT enviado no header "Authorization" da requisição. Ele verifica se o token é válido, extrai o nome de usuário do token e carrega os detalhes do usuário do serviço de detalhes de usuário. Em seguida, ele configura a autenticação do Spring Security para o usuário atual. O filtro é executado em cada requisição por meio da classe OncePerRequestFilter.

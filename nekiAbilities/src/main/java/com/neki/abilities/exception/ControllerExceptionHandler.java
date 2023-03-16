@@ -51,3 +51,6 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
 }
+
+
+// Esse código implementa um manipulador de exceções personalizado para lidar com exceções lançadas durante a execução de uma API RESTful. Ele estende a classe ResponseEntityExceptionHandler e define vários métodos para manipular diferentes tipos de exceções. Além disso, ele também define um método para lidar com exceções personalizadas e retornar uma resposta de erro adequada. Em resumo, esse código fornece um mecanismo para tratar e retornar respostas de erro adequadas em uma API RESTful.

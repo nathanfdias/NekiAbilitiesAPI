@@ -42,6 +42,7 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    // Este é um endpoint REST que autentica um usuário com base em um objeto de requisição de login, retornando um token de acesso e um objeto de resposta contendo informações do usuário autenticado em caso de sucesso, ou um erro apropriado em caso de falha.
     @PostMapping("/signin")
     @Operation(summary = "Sign In Service", description = "Sign In Service", responses = {
             @ApiResponse(responseCode = "200", description = "Successfully Singned In!", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SignupResponseDTO.class))),
@@ -60,6 +61,7 @@ public class AuthController {
         }
     }
 
+    // Esse código define uma rota POST para registrar um novo usuário, validando o corpo da requisição com a classe SignupRequestDTO e retornando uma resposta 201 caso seja bem-sucedido ou um erro 422 caso contrário.
     @PostMapping("/signup")
     @Operation(summary = "Register In Service", description = "register In Service", responses = {
             @ApiResponse(responseCode = "201", description = "Successfully Register In!", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SignupRegisterResponseDTO.class))),
@@ -78,6 +80,7 @@ public class AuthController {
         }
     }
 
+    // Essa é uma API protegida por autenticação de token e autorização de acesso para usuários com perfil de administrador, onde é possível adicionar novas roles a um usuário específico através de uma requisição PUT.
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/new-roles/{idUsuario}")
     @SecurityRequirement(name = "token")
@@ -99,6 +102,7 @@ public class AuthController {
         }
     }
 
+    // Este é um endpoint que permite a atualização do token de autenticação para um novo período de validade, por meio do envio de um pedido contendo o token de atualização.
     @PostMapping("/refreshtoken")
     @Operation(summary = "Refresh Token", description = "Refresh Token", responses = {
             @ApiResponse(responseCode = "200", description = "Successfully Refresh Token!", content = @Content(mediaType = "application/json", schema = @Schema(implementation = RefreshTokenResponseDTO.class))),
@@ -116,6 +120,7 @@ public class AuthController {
         }
     }
 
+    // Este é um endpoint que permite que um usuário faça logout do sistema. Ele requer uma autenticação válida através do token JWT, e retorna uma resposta HTTP com o código 200 caso o logout seja bem-sucedido.
     @PostMapping("/signout")
     @SecurityRequirement(name = "token")
     @Operation(summary = "Signout In Service", description = "Signout In Service", responses = {
@@ -129,6 +134,7 @@ public class AuthController {
         return ResponseEntity.ok(authService.logoutUser());
     }
 
+    // Essa é uma API que retorna informações do usuário logado, sendo acessível tanto por usuários com a permissão "USER" quanto por aqueles com a permissão "ADMIN". A resposta é um objeto UserLoggedResponseDTO em caso de sucesso ou um objeto ApiError em caso de erro.
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/logged")
     @SecurityRequirement(name = "token")

@@ -42,3 +42,5 @@ public class ApiError {
         errors = Arrays.asList(error);
     }
 }
+
+// Este é um objeto que representa um erro padrão da API que é retornado como resposta em caso de exceções. O objeto contém informações sobre o status da resposta HTTP, uma mensagem de erro e uma lista de erros detalhados, caso haja mais de um. Ele possui construtores para diferentes tipos de parâmetros, incluindo a possibilidade de fornecer apenas uma única mensagem de erro ou uma lista de mensagens de erro. Ele também usa o Lombok para gerar automaticamente os métodos getters e setters.

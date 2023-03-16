@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import org.json.JSONObject;
 
+// Essa classe lê um arquivo JSON e retorna um objeto JSON a partir do seu conteúdo.
 public class ReadJsonFileToJsonObject {
     public JSONObject read() throws IOException {
         String file = "src/main/resources/openapi/response.json";

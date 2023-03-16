@@ -77,3 +77,5 @@ public class JwtUtils {
         return false;
     }
 }
+
+// Este é um utilitário para geração e validação de tokens JWT (JSON Web Tokens). Ele contém métodos para gerar um token a partir do nome de usuário e ID do usuário, gerar um token de recuperação, obter o assunto (nome de usuário) a partir do token, obter o ID do usuário a partir do token e validar o token JWT. Ele usa uma chave secreta e tempo de expiração definidos nas propriedades de configuração.

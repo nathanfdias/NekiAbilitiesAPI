@@ -27,3 +27,5 @@ public class UserDetailsServiceImplements implements UserDetailsService {
     }
 
 }
+
+// Este código é uma implementação do serviço UserDetailsService, que é usado pelo Spring Security para carregar detalhes do usuário durante a autenticação. Ele usa o repositório UserRepository para buscar um usuário pelo nome de usuário fornecido, cria um objeto UserDetails a partir do usuário encontrado e retorna esse objeto. A classe UserDetailsImplements é usada para construir o objeto UserDetails a partir do usuário retornado. Este método é transacional, garantindo que a transação seja gerenciada pelo Spring e que o estado do usuário não seja alterado. Se o usuário não for encontrado, é lançada uma exceção UsernameNotFoundException.
